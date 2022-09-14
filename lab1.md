@@ -61,7 +61,18 @@ These instructions are written for Athena or any other Unix-based platform
 (e.g., Linux, macOS, etc.)  Because the code is written in Java, it should work
 under Windows as well, although the directions in this document may not apply.
 
-We have included [Section 1.2](#ides) on using the project with IntelliJ,
+Unless you are running on Athena, you will also need to make sure you have a
+Java Development Kit (JDK) installed. SimpleDB requires at least Java 8 (note
+that "Java 8" and "Java 1.8" refer to the same version of Java—the former is
+used for branding purposes). **Our autograder uses Java 11, so please do not use
+any features newer than Java 11 (you will not need them for the lab).**
+
+You can install a JDK as follows:
+- On macOS: `brew install openjdk@11`
+- On Ubuntu (or WSL): `sudo apt install openjdk-11-jdk`
+- On Windows: See this [guide](https://docs.microsoft.com/en-us/java/openjdk/install).
+
+We have also included [Section 1.2](#ides) on using the project with IntelliJ,
 VSCode, or Eclipse.
 
 ## 1. Getting started
@@ -74,12 +85,12 @@ distributions include Ant. Under Athena, it is included in the `sipb` locker,
 which you can get to by typing `add sipb` at the Athena prompt. Note that on
 some versions of Athena you must also run `add -f java` to set the environment
 correctly for Java programs. See the [Athena documentation on using
-Java](http://web.mit.edu/acs/www/languages.html#Java) for more details.
+Java](http://web.mit.edu/java/www/) for more details.
 
 To help you during development, we have provided a set of unit tests in addition
 to the end-to-end tests that we use for grading. These are by no means
 comprehensive, and you should not rely on them exclusively to verify the
-correctness of your project (put those 6.170 skills to use!).
+correctness of your project (put those 6.1040 (formerly 6.170) skills to use!).
 
 To run the unit tests use the `test` build target:
 
