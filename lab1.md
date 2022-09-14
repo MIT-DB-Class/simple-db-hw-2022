@@ -828,11 +828,20 @@ set up. You may submit your code multiple times before the deadline; we will use
 the latest version as determined by Gradescope. Place the write-up in a file
 called `lab1-writeup.txt` with your submission.
 
+If you are working with a partner, only one person needs to submit to
+Gradescope. However, make sure to add the other person to your group. Also note
+that each member must have their own writeup. Please add your Kerberos username
+to the file name and in the writeup itself (e.g., `lab1-writeup-username1.txt`
+and `lab1-writeup-username2.txt`).
+
 The easiest way to submit to Gradescope is with `.zip` files containing your
 code. On Linux/macOS, you can do so by running the following command:
 
 ```bash
 $ zip -r submission.zip src/ lab1-writeup.txt
+
+# If you are working with a partner:
+$ zip -r submission.zip src/ lab1-writeup-username1.txt lab1-writeup-username2.txt
 ```
 
 ### 3.3. Submitting a bug
