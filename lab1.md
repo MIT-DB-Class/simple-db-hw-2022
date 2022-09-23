@@ -640,8 +640,8 @@ file. You will then be able to fetch tuples from a file stored on disk.
 
 To read a page from disk, you will first need to calculate the correct offset in
 the file. Hint: you will need random access to the file in order to read and
-write pages at arbitrary offsets. You should not call `BufferPool` methods when
-reading a page from disk.
+write pages at arbitrary offsets. You should not call `BufferPool` instance
+methods when reading a page from disk.
 
 You will also need to implement the `HeapFile.iterator()` method, which should
 iterate through through the tuples of each page in the HeapFile. The iterator
