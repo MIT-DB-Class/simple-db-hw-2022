@@ -77,7 +77,7 @@ public class ScanTest extends SimpleDbTestBase {
      * @throws TransactionAbortedException
      * @throws DbException */
     @Test public void testCache() throws IOException, DbException, TransactionAbortedException {
-        /* Counts the number of readPage operations. */
+        /* Counts the number of successful `readPage()` calls. */
         class InstrumentedHeapFile extends HeapFile {
             public InstrumentedHeapFile(File f, TupleDesc td) {
                 super(f, td);
@@ -85,8 +85,10 @@ public class ScanTest extends SimpleDbTestBase {
 
             @Override
             public Page readPage(PageId pid) throws NoSuchElementException {
+                // Only count successful `readPage()` invocations.
+                final Page page = super.readPage(pid);
                 readCount += 1;
-                return super.readPage(pid);
+                return page;
             }
 
             public int readCount = 0;
