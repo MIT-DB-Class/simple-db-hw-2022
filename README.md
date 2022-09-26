@@ -116,7 +116,7 @@ You should have Git installed from the previous section.
 4. Lastly we need to give your repository a new `origin` since it is lacking one. Issue the following command, substituting your athena username:
 
    ```bash
-    $ git remote add origin https://github.com/[your-repo]
+    $ git remote add origin https://github.com/[your-username]/[your-repo]
    ```
 
    If you have an error that looks like the following:
@@ -134,7 +134,7 @@ You should have Git installed from the previous section.
    This appears to happen to some depending on the version of Git being used. To fix it, just issue the following command:
 
    ```bash
-   $ git remote set-url origin https://github.com/[your-repo]
+   $ git remote set-url origin https://github.com/[your-username]/[your-repo]
    ```
 
    This solution was found from [StackOverflow](http://stackoverflow.com/a/2432799) thanks to [Cassidy Williams](https://github.com/cassidoo).
@@ -146,8 +146,8 @@ You should have Git installed from the previous section.
     $ git remote -v
         upstream https://github.com/MIT-DB-Class/simple-db-hw-2022.git (fetch)
         upstream https://github.com/MIT-DB-Class/simple-db-hw-2022.git (push)
-        origin https://github.com/[your-repo] (fetch)
-        origin https://github.com/[your-repo] (push)
+        origin https://github.com/[your-username]/[your-repo] (fetch)
+        origin https://github.com/[your-username]/[your-repo] (push)
    ```
 
 5. Let's test it out by doing a push of your main branch to GitHub by issuing the following:
