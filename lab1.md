@@ -57,6 +57,15 @@ fixes, new commits to the HW repo, etc., as bugs and issues are reported.
 following the instructions
 [here](https://github.com/MIT-DB-Class/simple-db-hw-2022).**
 
+------
+
+**Update (09/26/2022):** If you are starting this lab on or after September 26,
+the code that you will get from this repository will include the starter code
+and the tests for later labs. To get only the subset of the code and tests used
+for lab 1, switch to the `lab1` branch (`git checkout lab1`).
+
+------
+
 These instructions are written for Athena or any other Unix-based platform
 (e.g., Linux, macOS, etc.)  Because the code is written in Java, it should work
 under Windows as well, although the directions in this document may not apply.
@@ -64,8 +73,17 @@ under Windows as well, although the directions in this document may not apply.
 Unless you are running on Athena, you will also need to make sure you have a
 Java Development Kit (JDK) installed. SimpleDB requires at least Java 8 (note
 that "Java 8" and "Java 1.8" refer to the same version of Java—the former is
-used for branding purposes). **Our autograder uses Java 11, so please do not use
-any features newer than Java 11 (you will not need them for the lab).**
+used for branding purposes). This project has been configured to use Java 11 by
+default. If you are running an older version of Java, you will need to update
+following line in `build.xml`:
+
+```xml
+<!-- Update the value below to match your version (e.g., "1.8"). -->
+<property name="sourceversion" value="11"/>
+```
+
+**Our autograder uses Java 11, so please do not use any features newer than Java
+11 (you will not need them for the lab).**
 
 You can install a JDK as follows:
 - On macOS: `brew install openjdk@11`
