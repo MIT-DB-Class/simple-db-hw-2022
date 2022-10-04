@@ -2,7 +2,7 @@
 
 **Assigned:** Monday September 26, 2022
 
-**Due:** Wednesday, October 5, 2022 by 11:59 PM ET
+**Due:** Wednesday October 5, 2022 by 11:59 PM ET
 
 In this lab assignment, you will write a set of operators for SimpleDB to
 implement table modifications (e.g., insert and delete records), selections,
@@ -21,6 +21,15 @@ The remainder of this document gives some suggestions about how to start coding,
 describes a set of exercises to help you work through the lab, and discusses how
 to hand in your code. This lab requires you to write a fair amount of code, so
 we encourage you to **start early**!
+
+------
+
+**Update (10/05/2022):** If you are starting this lab on or after October 5,
+the code that you will get from this repository will include the starter code
+and the tests for later labs. To get only the subset of the code and tests used
+for lab 2, switch to the `lab2` branch (`git checkout lab2`).
+
+------
 
 <a name="starting"></a>
 
