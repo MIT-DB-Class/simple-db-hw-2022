@@ -494,6 +494,14 @@ public class Parser {
     }
 
     public void processNextStatement(InputStream is) {
+        processNextStatementImpl(is, /*expectNoErrors=*/false);
+    }
+
+    public void processNextStatementForTest(String s) {
+        processNextStatementImpl(new ByteArrayInputStream(s.getBytes(StandardCharsets.UTF_8)), /*expectNoErrors=*/true);
+    }
+
+    private void processNextStatementImpl(InputStream is, boolean expectNoErrors) {
         try {
             ZqlParser p = new ZqlParser(is);
             ZStatement s = p.readStatement();
@@ -556,11 +564,20 @@ public class Parser {
 
         } catch (IOException | DbException e) {
             e.printStackTrace();
+            if (expectNoErrors) {
+                throw new RuntimeException(e);
+            }
         } catch (simpledb.ParsingException e) {
             System.out
                     .println("Invalid SQL expression: \n \t" + e.getMessage());
+            if (expectNoErrors) {
+                throw new RuntimeException(e);
+            }
         } catch (ParseException | TokenMgrError e) {
             System.out.println("Invalid SQL expression: \n \t " + e);
+            if (expectNoErrors) {
+                throw new RuntimeException(e);
+            }
         }
     }
 

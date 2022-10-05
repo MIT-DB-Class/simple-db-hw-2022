@@ -180,7 +180,7 @@ public class JoinOptimizer {
 
     /**
      * Compute a logical, reasonably efficient join on the specified tables. See
-     * PS4 for hints on how this should be implemented.
+     * the Lab 3 description for hints on how this should be implemented.
      *
      * @param stats               Statistics for each table involved in the join, referenced by
      *                            base table names, not alias
