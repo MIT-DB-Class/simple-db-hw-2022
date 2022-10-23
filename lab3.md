@@ -2,7 +2,7 @@
 
 **Assigned:** Wednesday October 5, 2022
 
-**Due:** Monday October 24, 2022 by 11:59 PM ET
+**Due:** Wednesday October 26, 2022 by 11:59 PM ET
 
 In this lab, you will implement a query optimizer on top of SimpleDB. The main
 tasks include implementing a selectivity estimation framework and a cost-based
