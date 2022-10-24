@@ -18,6 +18,16 @@ As with the previous lab, we recommend that you start as early as possible.
 
 ##  1. Getting started
 
+------
+
+**Update (10/24/2022):** If you are starting this lab on or after October 24,
+the code that you will get from this repository will include the starter code
+and the tests for later labs. To get only the subset of the code and tests used
+for lab 3, switch to the `lab3` branch (`git checkout lab3`).
+
+------
+
+
 You should begin with the code you submitted for Lab 2. (If you did not submit
 code for Lab 2, or your solution didn't work properly, contact us to discuss
 options.)
@@ -553,7 +563,7 @@ test suite we will run over it. These tests will be a superset of the tests we
 have provided. Before handing in your code, you should make sure it produces no
 errors (passes all of the tests) from both `ant test` and `ant systemtest`.
 
-**Important:** before testing, gradescope will replace your `build.xml`,
+**Important:** before testing, Gradescope will replace your `build.xml`,
 `HeapFileEncoder.java`, `Parser.java` and the entire contents of the `test`
 directory with our version of these files.  This means you cannot change the
 format of `.dat` files and you cannot rely on any custom functionality in
