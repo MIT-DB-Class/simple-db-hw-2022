@@ -10,7 +10,7 @@ import simpledb.transaction.TransactionAbortedException;
 /**
  * Tests running concurrent transactions.
  * You do not need to pass this test until Lab 4.
- * @see simpledb.systemtest.TransactionTestShared
+ * @see simpledb.systemtest.TransactionTestUtil
  */
 public class TransactionTestTen extends SimpleDbTestBase {
     @Test public void testTenThreads()
