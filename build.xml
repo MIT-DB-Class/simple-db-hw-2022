@@ -54,13 +54,14 @@
         </sequential>
     </macrodef>
 
+
     <!-- Common macro for running junit tests in both the test and runtest targets -->
     <macrodef name="RunJunit">
         <attribute name="haltonfailure" default="yes" />
+        <attribute name="timeoutMs" />
         <element name="testspecification" implicit="yes" />
         <sequential>
-            <!-- timeout at 10.5 minutes, since TransactionTest is limited to 10 minutes. -->
-            <junit printsummary="on" fork="yes" timeout="120000" haltonfailure="@{haltonfailure}" maxmemory="128M" failureproperty="junit.failed">
+            <junit printsummary="on" fork="yes" timeout="@{timeoutMs}" haltonfailure="@{haltonfailure}" maxmemory="128M" failureproperty="junit.failed">
                 <classpath refid="classpath.test" />
                 <formatter type="plain" usefile="false"/>
                 <assertions><enable/></assertions>
@@ -217,8 +218,11 @@
         </Compile>
     </target>
 
+    <!-- Timeout is 2 minutes for all tests except TransactionTest{One, Two, Five, Ten} (10 minutes each). -->
+    <property name="timeoutMs" value="120000" />
+
     <target name="test" depends="testcompile" description="Run all unit tests">
-        <RunJunit>
+        <RunJunit timeoutMs="${timeoutMs}">
             <batchtest>
                 <fileset dir="${build.test}">
                     <include name="**/*Test.class"/>
@@ -230,7 +234,7 @@
     </target>
 
     <target name="systemtest" depends="testcompile" description="Run all system tests">
-        <RunJunit>
+        <RunJunit timeoutMs="${timeoutMs}">
             <batchtest>
                 <fileset dir="${build.test}">
                     <include name="simpledb/systemtest/*Test.class"/>
@@ -250,7 +254,7 @@
         </available>
         <fail unless="test.exists" message="Test ${test} could not be found"/>
 
-        <RunJunit>
+        <RunJunit timeoutMs="${timeoutMs}">
             <test name="simpledb.${test}"/>
         </RunJunit>
     </target>
@@ -266,10 +270,11 @@
         </available>
         <fail unless="test.exists" message="Test ${test} could not be found"/>
 
-        <RunJunit>
+        <RunJunit timeoutMs="${timeoutMs}">
             <test name="simpledb.systemtest.${test}"/>
         </RunJunit>
     </target>
+
 
     <!-- The following target is used for automated grading. -->
     <target name="test-report" depends="testcompile"
@@ -277,7 +282,7 @@
         <mkdir dir="${test.reports}"/>
 
         <!-- do not halt on failure so we always produce HTML reports. -->
-        <RunJunit haltonfailure="no">
+        <RunJunit haltonfailure="no" timeoutMs="${timeoutMs}">
             <formatter type="xml"/>
             <formatter type="plain" usefile="true"/>
             <batchtest todir="${test.reports}" >

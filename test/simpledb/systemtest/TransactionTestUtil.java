@@ -10,8 +10,6 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.atomic.AtomicInteger;
 
-import org.junit.Test;
-
 import simpledb.common.Database;
 import simpledb.common.DbException;
 import simpledb.execution.Delete;
@@ -26,13 +24,13 @@ import simpledb.transaction.TransactionId;
 import static org.junit.Assert.*;
 
 /**
- * Tests running concurrent transactions.
- * You do not need to pass this test until lab3.
+ * Utilities for testing concurrent transactions.
  */
-public class TransactionTest extends SimpleDbTestBase {
+public class TransactionTestUtil {
     // Wait up to 10 minutes for the test to complete
     private static final int TIMEOUT_MILLIS = 10 * 60 * 1000;
-    private void validateTransactions(int threads)
+
+    public static void validateTransactions(int threads)
             throws DbException, TransactionAbortedException, IOException {
         // Create a table with a single integer value = 0
         Map<Integer, Integer> columnSpecification = new HashMap<>();
@@ -212,51 +210,5 @@ public class TransactionTest extends SimpleDbTestBase {
                 }
             }           
         }
-    }
-    
-    @Test public void testSingleThread()
-            throws IOException, DbException, TransactionAbortedException {
-        validateTransactions(1);
-    }
-
-    @Test public void testTwoThreads()
-            throws IOException, DbException, TransactionAbortedException {
-        validateTransactions(2);
-    }
-
-    @Test public void testFiveThreads()
-            throws IOException, DbException, TransactionAbortedException {
-        validateTransactions(5);
-    }
-    
-    @Test public void testTenThreads()
-    throws IOException, DbException, TransactionAbortedException {
-        validateTransactions(10);
-    }
-
-    @Test public void testAllDirtyFails()
-            throws IOException, DbException, TransactionAbortedException {
-        // Allocate a file with ~10 pages of data
-        HeapFile f = SystemTestUtil.createRandomHeapFile(2, 512*10, null, null);
-        Database.resetBufferPool(1);
-
-        // BEGIN TRANSACTION
-        Transaction t = new Transaction();
-        t.start();
-
-        // Insert a new row
-        AbortEvictionTest.insertRow(f, t);
-
-        // Scanning the table must fail because it can't evict the dirty page
-        try {
-            AbortEvictionTest.findMagicTuple(f, t);
-            fail("Expected scan to run out of available buffer pages");
-        } catch (DbException ignored) {}
-        t.commit();
-    }
-
-    /** Make test compatible with older version of ant. */
-    public static junit.framework.Test suite() {
-        return new junit.framework.JUnit4TestAdapter(TransactionTest.class);
     }
 }
