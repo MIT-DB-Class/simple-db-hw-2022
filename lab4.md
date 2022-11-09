@@ -18,6 +18,16 @@ Locking and transactions can be quite tricky to debug!
 
 ##  1. Getting started
 
+------
+
+**Update (11/09/2022):** If you are starting this lab on or after November 9,
+the code that you will get from this repository will include the starter code
+and the tests for later labs. To get only the subset of the code and tests used
+for lab 4, switch to the `lab4` branch (`git checkout lab4`).
+
+------
+
+
 You should begin with the code you submitted for Lab 3 (if you did not submit
 code for Lab 3, or your solution didn't work properly, contact us to discuss
 options).  Additionally, we are providing extra test cases for this lab that are
@@ -403,7 +413,7 @@ that each member must have their own writeup. Please add your Kerberos username
 to the file name and in the writeup itself (e.g., `lab4-writeup-username1.txt`
 and `lab4-writeup-username2.txt`).
 
-The easiest way to submit to gradescope is with `.zip` files containing your
+The easiest way to submit to Gradescope is with `.zip` files containing your
 code. On Linux/macOS, you can do so by running the following command:
 
 ```bash
