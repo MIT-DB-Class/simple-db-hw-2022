@@ -17,7 +17,7 @@ redistributing tuples between pages, and merging pages.
 
 You may find it helpful to review [Chapter 2 in Database Internals by Alex
 Petrov](https://mit.primo.exlibrisgroup.com/discovery/openurl?institution=01MIT_INST&rfr_id=info:sid%2Fprimo.exlibrisgroup.com-safari&rft.au=Alex%20Petrov&rft.btitle=Database%20Internals&rft.date=2019-10-02&rft.eisbn=9781492040347&rft.genre=book&rft.isbn=1492040339&rft.pub=O%27Reilly%20Media,%20Inc&rft_dat=%3Csafari%3E9781492040330%3C%2Fsafari%3E&rft_val_fmt=info:ofi%2Ffmt:kev:mtx:book&svc_dat=viewit&url_ctx_fmt=info:ofi%2Ffmt:kev:mtx:ctx&url_ver=Z39.88-2004&vid=01MIT_INST:MIT),
-which provide detailed information about the structure of B+ trees.
+which provides detailed information about the structure of B+ trees.
 
 As discussed in class, the internal nodes in B+ trees contain multiple entries,
 each consisting of a key value and a left and a right child pointer. Adjacent
