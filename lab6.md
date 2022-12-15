@@ -251,11 +251,12 @@ test suite we will run over it. These tests will be a superset of the tests we
 have provided. Before handing in your code, you should make sure it produces no
 errors (passes all of the tests) from both `ant test` and `ant systemtest`.
 
-**Important:** before testing, gradescope will replace your `build.xml`,
-`HeapFileEncoder.java` and the entire contents of the `test` directory with our
-version of these files.  This means you cannot change the format of `.dat`
-files!  You should also be careful changing our APIs. You should test that your
-code compiles the unmodified tests.
+**Important:** before testing, Gradescope will replace your `build.xml`,
+`HeapFileEncoder.java`, `Parser.java` and the entire contents of the `test`
+directory with our version of these files.  This means you cannot change the
+format of `.dat` files and you cannot rely on any custom functionality in
+`Parser.java`!  You should also be careful changing our APIs. You should test
+that your code compiles the unmodified tests.
 
 You should get immediate feedback and error outputs for failed tests (if any)
 from Gradescope after submission. The score given will be your grade for the
